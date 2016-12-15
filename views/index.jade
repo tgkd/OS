@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  .card-columns
+    .card.card-block.text-xs-center(ng-repeat='song in songList' ng-style="{border: 'solid 2px {{song.border}}'}")
+      h4.card-title {{song.author}}
+      p.card-text
+        | {{song.name}}
+      a.btn.btn-outline-success(ng-click='playSong(song.id)' ng-hide='song.play' style='border-width: 2px') Play
+      a.btn.btn-outline-danger(ng-click='stopSong(song.id)' ng-hide='!song.play' style='border-width: 2px') Stop
